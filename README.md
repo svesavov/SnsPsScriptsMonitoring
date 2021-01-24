@@ -21,7 +21,7 @@ Install-Module "SnsPsScriptsMonitoring" -Scope "AllUsers";
 OR
 1. Download SnsPsScriptsMonitoring.zip.
 2. Don't forget to check the .ZIP file for viruses and etc.
-3. File MD5 hash: `939D3B8708271323C8F884FF16C1A210`
+3. File MD5 hash: `B6B4DC23303C7F24D7F20977B3B62CF9`
 4. Unzip in one of the following folders depending of your preference:
 * `C:\Users\UserName\Documents\WindowsPowerShell\Modules` - Replace "UserName" with the actual username, If you want the module to be available for specific user.
 * `C:\Program Files\WindowsPowerShell\Modules` - If you want the module to be available for all users on the machine.
