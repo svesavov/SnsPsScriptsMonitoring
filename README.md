@@ -41,6 +41,7 @@ In the begging, the monitored script must load this module and run the command l
 - the full absolute path to the transcript or log file
 - time threshold in minutes used to decide whether the monitored script is stuck
 - script’s own Windows Scheduled Task if the script is started via task on a schedule.
+
 Prepare in advance and run on a schedule a monitoring script which runs the command let Get-SnsMonitoringEntry with the needed parameters according to the preferences. You can use the output for whatever you name, send report with the failed scripts on email, upload the report on SharePoint, insert it on DataBase etc. You must write that in your script. Get-SnsMonitoringEntry can restart the failed scripts if it is specified to its parameters and the Monitoring Script is running in Elevated mode and all the needed information is provided during the enabling. In All the rest scenarios it only reports.
 For failed scripts are considered the ones which Windows process is no longer running, or scripts which did not update their transcript or log files for the specified with the Threshold parameter amount of time.
 At the end of the monitored script, it must run Disable-SnsScriptMonitoring command let, to disable its monitoring entry and to prevent successfully completed scripts to be reported as failed or started again.
