@@ -35,23 +35,40 @@ Get-ChildItem -Path "PathWhereModuleIsInstalled" -Recurse | Unblock-File
 
 ## Functionality
 
-The SnsPsScriptsMonitoring module was made to monitor PowerShell scripts operation. It can be used to monitor only scripts running on the same machine when no MS Orchestrator server is available.
+The SnsPsScriptsMonitoring module was made to monitor PowerShell scripts operation. It can be used to monitor only
+scripts running on the same machine when no MS Orchestrator server is available.
 
-To monitor a script, it must make a transcript file or log file and to insert updates in those files regularly.
-In the begging, the monitored script must load this module and run the command let Enable-SnsScriptMonitoring and provide:
+To monitor a script, it must make a transcript file or log file and to insert updates in those files regularly. In the
+begging, the monitored script must load this module and run the command let Enable-SnsScriptMonitoring and
+provide:
 - the full absolute path to the transcript or log file
 - time threshold in minutes used to decide whether the monitored script is stuck
 - script’s own Windows Scheduled Task if the script is started via task on a schedule.
 
-Prepare in advance and run on a schedule a monitoring script which runs the command let Get-SnsMonitoringEntry with the needed parameters according to the preferences. You can use the output for whatever you name, send report with the failed scripts on email, upload the report on SharePoint, insert it on DataBase etc. You must write that in your script. Get-SnsMonitoringEntry can restart the failed scripts if it is specified to its parameters and the Monitoring Script is running in Elevated mode and all the needed information is provided during the enabling. In All the rest scenarios it only reports.
+Prepare in advance and run on a schedule a monitoring script which runs the command let Get-SnsMonitoringEntry
+with the needed parameters according to the preferences. You can use the output for whatever you name, send report
+with the failed scripts on email, upload the report on SharePoint, insert it on DataBase etc. You must write that in your
+script. Get-SnsMonitoringEntry can restart the failed scripts if it is specified to its parameters and the Monitoring Script
+is running in Elevated mode and all the needed information is provided during the enabling. In All the rest scenarios it
+only reports.
 
-For failed scripts are considered the ones which Windows process is no longer running, or scripts which did not update their transcript or log files for the specified with the Threshold parameter amount of time.
+For failed scripts are considered the ones which Windows process is no longer running, or scripts which did not update
+their transcript or log files for the specified with the Threshold parameter amount of time.
 
-At the end of the monitored script, it must run Disable-SnsScriptMonitoring command let, to disable its monitoring entry and to prevent successfully completed scripts to be reported as failed or started again.
+At the end of the monitored script, it must run Disable-SnsScriptMonitoring command let, to disable its monitoring
+entry and to prevent successfully completed scripts to be reported as failed or started again.
 
-The module has no network capabilities other than verification for newer versions which can be disabled. It cannot monitor scripts that are not running on the same machine. The transcript or log files must be located on the same machine, or to be presented in a way like they are on the same machine, for example via mapping of network drive. If you need to have more complex monitoring solution that monitors scripts running on multiple machines, you can make the monitoring scripts as agents running locally that send the output on central location. In all the cases it is your responsibility to make a monitoring script which uses the Get-SnsMonitoringEntry.
+The module has no network capabilities other than verification for newer versions which can be disabled. It cannot
+monitor scripts that are not running on the same machine. The transcript or log files must be located on the same
+machine, or to be presented in a way like they are on the same machine, for example via mapping of network drive. If
+you need to have more complex monitoring solution that monitors scripts running on multiple machines, you can
+make the monitoring scripts as agents running locally that send the output on central location. In all the cases it is
+your responsibility to make a monitoring script which uses the Get-SnsMonitoringEntry.
 
-The SnsPsScriptsMonitoring is using SQLite V3 Database called Monitoring DataBase, in order the module CmdLets to exchange information about the Monitored Scripts. The SQLite DataBase is Serverless Open-Source DataBase solution, where the DataBase is a file stored locally. On the first import of the module, the Monitoring DataBase will be created. In Order this to happen smoothly the first import of the module must happen in Elevated PowerShell window.
+The SnsPsScriptsMonitoring is using SQLite V3 Database called Monitoring DataBase, in order the module CmdLets to
+exchange information about the Monitored Scripts. The SQLite DataBase is Serverless Open-Source DataBase solution,
+where the DataBase is a file stored locally. On the first import of the module, the Monitoring DataBase will be created.
+In Order this to happen smoothly the first import of the module must happen in Elevated PowerShell window.
 
 For additional information, please use the CmdLets built-in help.
 ```powershell
