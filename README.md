@@ -83,3 +83,4 @@ Get-Help Get-SnsMonitoringEntry -Full;
 - svesavov on GitHub: [https://github.com/svesavov](https://github.com/svesavov)
 - svesavov on PowerShell Gallery: [https://www.powershellgallery.com/packages/SnsPsScriptsMonitoring/](https://www.powershellgallery.com/packages/SnsPsScriptsMonitoring/)
 - Svetoslav Savov on LinkedIn [https://www.linkedin.com/in/svetoslavsavov](https://www.linkedin.com/in/svetoslavsavov)
+- SQLite V3: [https://sqlite.org/index.html](https://sqlite.org/index.html)
