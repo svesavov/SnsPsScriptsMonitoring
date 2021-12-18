@@ -12,6 +12,15 @@
 * PowerShell 4
 
 
+## Important
+
+The Monitoring DataBase schema is different stating from version 1.0.0.6. If you upgrade from previous versions please make
+sure that you will `Import-Module` in elevated PowerShell for the first time. The existing database will be backed up and
+kept for 61 days. The backup file will be in the same folder as the production database. You can use any SQLite tools to
+extract the information from the backup. The information which already exist in the Monitoring DataBase will be not
+migrated into the new database.
+
+
 ## Instructions
 
 To install the module from PowerShell Gallery simply run
@@ -21,7 +30,7 @@ Install-Module "SnsPsScriptsMonitoring" -Scope "AllUsers";
 OR
 1. Download SnsPsScriptsMonitoring.zip.
 2. Don't forget to check the .ZIP file for viruses and etc.
-3. File MD5 hash: `1DD42202D2BF0FA468610644E5ACBED2`
+3. File MD5 hash: `3990C2F07C3EE5E80D1E61D0C78EFFAE`
 4. Unzip in one of the following folders depending of your preference:
 * `C:\Users\UserName\Documents\WindowsPowerShell\Modules` - Replace "UserName" with the actual username, If you want the module to be available for specific user.
 * `C:\Program Files\WindowsPowerShell\Modules` - If you want the module to be available for all users on the machine.
@@ -74,7 +83,7 @@ For additional information, please use the CmdLets built-in help.
 ```powershell
 Get-Help Enable-SnsScriptMonitoring -Full;
 Get-Help Disable-SnsScriptMonitoring -Full;
-Get-Help Get-SnsMonitoringEntry -Full;
+Get-Help Get-SnsScriptMonitoringEntry -Full;
 ```
 
 
